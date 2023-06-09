@@ -9,7 +9,7 @@ echo -e "\e[35m This scripting is for Frontend \e[0m"
 
 echo "To check whether its user is root or not "
 
-if[ $ID -ne 0 ] ; then   
+if [ $ID -ne 0 ] ; then   
 echo -m "This script will be excuted by Root user"
 exit 1
 fi
