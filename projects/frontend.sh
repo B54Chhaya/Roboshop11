@@ -5,19 +5,20 @@ source PROJECTS/common.sh
 COMPONENT=frontend
 Service=nginx
 ID=$(id -u)
+
 echo -e "\e[35m This scripting is for Frontend \e[0m"
 
-echo "To check whether its user is root or not "
+echo "To check whether user is root or not "
 
 if [ $ID -ne 0 ] ; then   
-echo -e "\e[31mThis script will be excuted by Root user \e[0m"
+echo -e "\e[31m This script will be excuted by Root user or Privileged user \e[0m"
 exit 1
 fi
 
-#echo -e "\e[32m This will install $Service server on $COMPONENT \e[0m"
+echo -e "\e[32m This will install $Service server on $COMPONENT server \e[0m"
 
-#echo -n "Installing $Service :"
+echo -n "Installing $Service :"
 
-#sudo yum install nginx -y 
-#stat $?
+yum install nginx -y &>> "/tmp/${COMPONENT}.log"
+stat $?
 
