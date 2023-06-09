@@ -20,7 +20,6 @@ fi
 echo -e "\e[32m This will install $Service server on $COMPONENT server \e[0m"
 
 echo "Installing $Service :"
-
 yum install nginx -y &>> "/tmp/${COMPONENT}.log"
 
 if [ $? -eq 0 ] ; then
