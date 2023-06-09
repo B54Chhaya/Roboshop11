@@ -29,3 +29,15 @@ else
    echo -e  "\e[31m failure \e[0m"
 fi
 
+# download the HTDOCS content and deploy it under the Nginx path "="
+
+echo -e "\e[32m This will download $COMPONENT content \e[0m"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> "/tmp/${COMPONENT}.log"
+if [ $? -eq 0 ] ; then
+   echo -e "\e[33m success \e[0m"
+else   
+   echo -e  "\e[31m failure \e[0m"
+fi
+
+
+
