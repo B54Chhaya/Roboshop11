@@ -19,7 +19,7 @@ fi
 
 echo -e "\e[32m This will install $Service server on $COMPONENT server \e[0m"
 
-echo "Installing $Service :"
+echo -n "Installing $Service :"
 yum install nginx -y &>> "/tmp/${COMPONENT}.log"
 
 if [ $? -eq 0 ] ; then
@@ -30,7 +30,7 @@ fi
 
 # download the HTDOCS content and deploy it under the Nginx path "="
 
-echo "This will download $COMPONENT content :"
+echo -n "This will download $COMPONENT content :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> "/tmp/${COMPONENT}.log"
 
 if [ $? -eq 0 ] ; then
