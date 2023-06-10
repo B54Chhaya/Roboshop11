@@ -57,7 +57,7 @@ mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
 
 echo -n "starting ${COMPONENT} service :"
-systemctl enable $Service &>> "/tmp/${COMPONENT}.log"
-systemctl start $Service &>> "/tmp/${COMPONENT}.log"
+systemctl enable $Service &>> $LOGFILE
+systemctl start $Service &>>  $LOGFILE
 stat $?
 
