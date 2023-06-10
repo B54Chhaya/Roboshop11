@@ -30,18 +30,16 @@ fi
 
 echo -e "\e[32m This will install $Service server on $COMPONENT server \e[0m"
 
+# Installing Nginx
 echo -n "Installing $Service :"
 yum install nginx -y &>> "/tmp/${COMPONENT}.log"
 stat $?
 
 
 # download the HTDOCS content and deploy it under the Nginx path "="
-
 echo -n "This will download $COMPONENT content :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> "/tmp/${COMPONENT}.log"
 stat $?
-
-
 
 #Performing clean of logs
 echo -n "Performing cleanup :"
@@ -49,6 +47,11 @@ cd /usr/share/nginx/html
 rm -rf * &>> "/tmp/${COMPONENT}.log"
 stat $?
 
-
-
-
+#unzipping file
+echo -n "Extracting ${COMPONENT} component :"
+unzip /tmp/${COMPONENT}.zip &>> "/tmp/${COMPONENT}.log"
+mv ${COMPONENT}-main/* .
+mv static/* . "/tmp/${COMPONENT}.log"
+rm -rf ${COMPONENT}-main README.md
+mv localhost.conf /etc/${Service}/default.d/roboshop.conf
+stat $?
