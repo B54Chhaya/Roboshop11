@@ -55,3 +55,9 @@ mv static/* . &>> "/tmp/${COMPONENT}.log"
 rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
+
+echo -n "starting ${COMPONENT} service :"
+systemctl enable $Service
+systemctl start $Service
+stat $?
+
