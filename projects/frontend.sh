@@ -1,13 +1,10 @@
 #!/bin/bash
 
-
-
 COMPONENT=frontend
 Service=nginx
 ID=$(id -u)
 
-source common.sh
-
+source /common.sh
 
 # Status function to check wheather it success or failure
 #stat()  {
