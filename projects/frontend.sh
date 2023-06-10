@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source PROJECTS/common.sh
+source projects/common.sh
 
 COMPONENT=frontend
 Service=nginx
