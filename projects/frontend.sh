@@ -63,6 +63,3 @@ echo -n "starting ${COMPONENT} service :"
 systemctl enable $Service &>> $LOGFILE
 systemctl start $Service &>>  $LOGFILE
 stat $?
-
-
-
