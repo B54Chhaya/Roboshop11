@@ -51,7 +51,7 @@ stat $?
 echo -n "Extracting ${COMPONENT} component :"
 unzip /tmp/${COMPONENT}.zip &>> "/tmp/${COMPONENT}.log"
 mv ${COMPONENT}-main/* .
-mv static/* . "/tmp/${COMPONENT}.log"
+mv static/* . &>> "/tmp/${COMPONENT}.log"
 rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
