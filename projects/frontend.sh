@@ -7,14 +7,14 @@ ID=$(id -u)
 source /common.sh
 
 # Status function to check wheather it success or failure
-#stat()  {
+stat()  {
         if [ $1 -eq 0 ] ; then
-#            echo -e "\e[33m success \e[0m"
-#         else   
-#          echo -e  "\e[31m failure \e[0m"
-#          exit 2
-#         fi
- #        }
+            echo -e "\e[33m success \e[0m"
+         else   
+          echo -e  "\e[31m failure \e[0m"
+          exit 2
+         fi
+       }
 
 
 echo -e "\e[35m This scripting is for Frontend \e[0m"
@@ -60,3 +60,4 @@ echo -n "starting ${COMPONENT} service :"
 systemctl enable $Service &>> $LOGFILE
 systemctl start $Service &>>  $LOGFILE
 stat $?
+
